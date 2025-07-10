@@ -1,8 +1,8 @@
-# AI-Powered Tutor
+# Pace AI
 
 ## Overview
 
-The **AI-Powered Tutor** is an interactive web application designed to facilitate personalized learning. This application leverages advanced AI capabilities to provide comprehensive explanations on a wide range of topics and assess understanding through dynamic quizzes. It offers a unique conversational learning experience, adapting its teaching approach to suit individual user needs and learning styles.
+The **Pace AI** is an interactive AI Tutor web application designed to facilitate personalized learning. This application leverages advanced AI capabilities to provide comprehensive explanations on a wide range of topics and assess understanding through dynamic quizzes. It offers a unique conversational learning experience, adapting its teaching approach to suit individual user needs and learning styles.
 
 ## Features
 
