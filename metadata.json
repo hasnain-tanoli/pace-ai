@@ -1,0 +1,5 @@
+{
+  "name": "AI Powered Tutor",
+  "description": "An interactive AI tutor that explains concepts using different teaching methods and quizzes the user to ensure understanding. It adapts its approach based on user feedback and quiz performance.",
+  "requestFramePermissions": []
+}

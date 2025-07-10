@@ -1,0 +1,1004 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  /* Premium Color Palette */
+  --color-background-primary: #0a0a0f;
+  --color-background-secondary: #111116;
+  --color-background-tertiary: #1a1a24;
+  --color-background-elevated: #212130;
+  --color-background-chat: #16161d;
+  
+  /* Surface Colors */
+  --color-surface-primary: #1e1e2e;
+  --color-surface-secondary: #252537;
+  --color-surface-elevated: #2d2d42;
+  --color-surface-glass: rgba(255, 255, 255, 0.05);
+  
+  /* Text Colors */
+  --color-text-primary: #f8f9fa;
+  --color-text-secondary: #e1e5e9;
+  --color-text-tertiary: #a8b3cf;
+  --color-text-muted: #6b7280;
+  --color-text-accent: #818cf8;
+  
+  /* Accent Colors */
+  --color-accent-primary: #6366f1;
+  --color-accent-secondary: #8b5cf6;
+  --color-accent-tertiary: #06b6d4;
+  --color-accent-success: #10b981;
+  --color-accent-warning: #f59e0b;
+  --color-accent-error: #ef4444;
+  
+  /* Gradient Colors */
+  --gradient-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  --gradient-secondary: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+  --gradient-surface: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+  
+  /* Border Colors */
+  --color-border-primary: #2d3748;
+  --color-border-secondary: #374151;
+  --color-border-accent: #4f46e5;
+  
+  /* Shadow System */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.4);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 20px rgba(99, 102, 241, 0.3);
+  --shadow-glow-secondary: 0 0 20px rgba(139, 92, 246, 0.3);
+  
+  /* Animation Curves */
+  --ease-smooth: cubic-bezier(0.4, 0.0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  
+  /* Modern Viewport Height System */
+  --vh-small: 100svh; /* Small viewport height - excludes dynamic UI */
+  --vh-large: 100lvh; /* Large viewport height - includes dynamic UI */
+  --vh-dynamic: 100dvh; /* Dynamic viewport height - adjusts with UI */
+  --vh-fallback: 100vh; /* Fallback for older browsers */
+  
+  /* Mobile-First Typography Scale with Fluid Sizing */
+  --font-size-xs: clamp(0.7rem, 2vw, 0.75rem);
+  --font-size-sm: clamp(0.8rem, 2.2vw, 0.875rem);
+  --font-size-base: clamp(0.9rem, 2.5vw, 1rem);
+  --font-size-lg: clamp(1rem, 3vw, 1.125rem);
+  --font-size-xl: clamp(1.1rem, 3.5vw, 1.25rem);
+  --font-size-2xl: clamp(1.25rem, 4vw, 1.5rem);
+  --font-size-3xl: clamp(1.5rem, 5vw, 1.875rem);
+  --font-size-4xl: clamp(1.75rem, 6vw, 2.25rem);
+  
+  /* Font Weights */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  /* Mobile-Optimized Spacing System */
+  --space-xs: clamp(0.25rem, 1vw, 0.5rem);
+  --space-sm: clamp(0.5rem, 2vw, 0.75rem);
+  --space-md: clamp(0.75rem, 3vw, 1rem);
+  --space-lg: clamp(1rem, 4vw, 1.5rem);
+  --space-xl: clamp(1.5rem, 5vw, 2rem);
+  --space-2xl: clamp(2rem, 6vw, 3rem);
+  --space-3xl: clamp(2.5rem, 8vw, 4rem);
+  
+  /* Touch Target Sizes */
+  --touch-target-min: 44px; /* iOS/Android minimum */
+  --touch-target-preferred: 48px; /* Preferred size */
+  --touch-target-comfortable: 56px; /* Comfortable size */
+  
+  /* Mobile Breakpoints */
+  --breakpoint-xs: 320px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  
+  /* Container Sizes */
+  --container-xs: 100%;
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+  
+  /* Z-Index Scale */
+  --z-dropdown: 10;
+  --z-sticky: 20;
+  --z-fixed: 30;
+  --z-modal-backdrop: 40;
+  --z-modal: 50;
+  --z-popover: 60;
+  --z-tooltip: 70;
+  --z-toast: 80;
+  --z-loading: 90;
+}
+
+/* Modern CSS Reset and Mobile-First Base Styles */
+html {
+  /* Dynamic viewport height support with graceful fallback */
+  height: var(--vh-fallback);
+  height: var(--vh-dynamic);
+  width: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  
+  /* Better text rendering */
+  -webkit-text-size-adjust: 100%; /* Prevent font scaling in landscape */
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  
+  /* Enhanced font smoothing */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  background: var(--color-background-primary);
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  font-weight: var(--font-weight-normal);
+  font-size: var(--font-size-base);
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: var(--vh-fallback);
+  min-height: var(--vh-dynamic);
+  overflow-x: hidden;
+  
+  /* Improve mobile performance */
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: none; /* Prevent bounce scrolling */
+  
+  /* Better mobile tap behavior */
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  touch-action: manipulation;
+}
+
+/* Enhanced box-sizing for all elements */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Root container optimization */
+#root {
+  width: 100%;
+  min-height: var(--vh-fallback);
+  min-height: var(--vh-dynamic);
+  position: relative;
+  isolation: isolate; /* Create new stacking context */
+}
+
+/* Mobile-First Typography Improvements */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  margin: 0;
+}
+
+h1 { font-size: var(--font-size-4xl); }
+h2 { font-size: var(--font-size-3xl); }
+h3 { font-size: var(--font-size-2xl); }
+h4 { font-size: var(--font-size-xl); }
+h5 { font-size: var(--font-size-lg); }
+h6 { font-size: var(--font-size-base); }
+
+p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Enhanced Mobile Input Styles */
+input, textarea, select, button {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  margin: 0;
+}
+
+/* Mobile-Optimized Touch Targets */
+button, input[type="submit"], input[type="button"], input[type="reset"] {
+  min-height: var(--touch-target-min);
+  min-width: var(--touch-target-min);
+  padding: var(--space-sm) var(--space-md);
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s var(--ease-smooth);
+  
+  /* Improve touch feedback */
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  touch-action: manipulation;
+  user-select: none;
+  
+  /* Focus improvements */
+  &:focus-visible {
+    outline: 2px solid var(--color-accent-primary);
+    outline-offset: 2px;
+  }
+}
+
+/* Enhanced link styles */
+a {
+  color: var(--color-accent-primary);
+  text-decoration: none;
+  transition: color 0.2s var(--ease-smooth);
+  
+  &:hover {
+    color: var(--color-accent-secondary);
+  }
+  
+  &:focus-visible {
+    outline: 2px solid var(--color-accent-primary);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+}
+
+/* ===== RESPONSIVE BREAKPOINTS & MOBILE-FIRST STYLES ===== */
+
+/* Extra Small Devices (320px and up) - Base mobile styles */
+@media (min-width: 320px) {
+  :root {
+    --container-padding: var(--space-md);
+    --header-height: 4.5rem;
+    --input-height: 2.75rem;
+  }
+}
+
+/* Small Devices (640px and up) - Large phones */
+@media (min-width: 640px) {
+  :root {
+    --font-size-base: clamp(1rem, 2.5vw, 1.05rem);
+    --font-size-lg: clamp(1.125rem, 3vw, 1.2rem);
+    --font-size-xl: clamp(1.25rem, 3.5vw, 1.35rem);
+    --font-size-2xl: clamp(1.5rem, 4vw, 1.6rem);
+    --font-size-3xl: clamp(1.875rem, 5vw, 2rem);
+    --container-padding: var(--space-lg);
+    --header-height: 5rem;
+    --input-height: 3rem;
+  }
+  
+  /* Better button sizing for larger phones */
+  button {
+    min-height: var(--touch-target-preferred);
+    padding: var(--space-md) var(--space-lg);
+  }
+}
+
+/* Medium Devices (768px and up) - Tablets */
+@media (min-width: 768px) {
+  :root {
+    --container-padding: var(--space-xl);
+    --header-height: 5.5rem;
+    --input-height: 3.25rem;
+  }
+  
+  /* Tablet-optimized touch targets */
+  button {
+    min-height: var(--touch-target-comfortable);
+    padding: var(--space-lg) var(--space-xl);
+  }
+}
+
+/* Large Devices (1024px and up) - Desktop */
+@media (min-width: 1024px) {
+  :root {
+    --font-size-base: 1.05rem;
+    --font-size-lg: 1.2rem;
+    --font-size-xl: 1.35rem;
+    --font-size-2xl: 1.6rem;
+    --font-size-3xl: 2rem;
+    --container-padding: var(--space-2xl);
+    --header-height: 5rem;
+    --input-height: 3.5rem;
+  }
+}
+
+/* Mobile-Specific Header Improvements */
+@media (max-width: 640px) {
+  /* Prevent horizontal overflow */
+  body {
+    overflow-x: hidden;
+    position: relative;
+  }
+  
+  /* Enhanced mobile header bottom padding */
+  .mobile-header-safe-padding {
+    padding-bottom: max(0.75rem, env(safe-area-inset-bottom, 0.75rem));
+  }
+  
+  /* Better text handling for small screens */
+  .prose, .prose p, .prose li, .prose div {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+    font-size: var(--font-size-sm);
+    line-height: 1.7;
+  }
+  
+  /* Mobile-optimized code blocks */
+  .prose pre {
+    font-size: var(--font-size-xs);
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-break: break-all;
+    border-radius: 0.5rem;
+    padding: var(--space-md);
+  }
+  
+  .prose code {
+    font-size: var(--font-size-xs);
+    word-break: break-all;
+    padding: 0.125rem 0.25rem;
+  }
+  
+  /* Ensure all containers respect mobile viewport */
+  .container, .max-w-4xl, .max-w-xl, .max-w-lg, .max-w-md, .max-w-sm, .max-w-xs {
+    max-width: 100%;
+    width: 100%;
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
+    overflow-wrap: break-word;
+  }
+  
+  /* Mobile input improvements */
+  input[type="text"], input[type="email"], input[type="password"], textarea {
+    font-size: 16px; /* Prevent zoom on iOS */
+    min-height: var(--touch-target-min);
+    padding: var(--space-md);
+    border-radius: 0.75rem;
+  }
+  
+  /* Better header alignment for mobile */
+  .mobile-header-container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-bottom: 0.5rem; /* Add bottom padding for mobile */
+    min-height: var(--header-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .mobile-header-content {
+    gap: 0.75rem;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .mobile-header-text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100%;
+    padding: 0.75rem 0 0.75rem 0; /* Improved vertical padding */
+    min-height: calc(var(--header-height) - 1rem);
+    flex: 1;
+    min-width: 0; /* Prevent flex item from overflowing */
+  }
+  
+  .mobile-header-button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 0.75rem 0; /* Add matching vertical padding */
+    flex-shrink: 0; /* Prevent button from shrinking */
+  }
+
+/* Enhanced mobile touch interactions */
+@media (max-width: 480px) {
+  /* Ensure proper spacing on smaller screens */
+  .mobile-header-container {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-bottom: 0.75rem; /* Increased bottom padding for very small screens */
+  }
+  
+  .mobile-header-text-container {
+    padding-right: 0.5rem;
+    padding-top: 1rem; /* Add more top padding for small screens */
+    padding-bottom: 1rem;
+  }
+  
+  .mobile-header-button-container {
+    padding: 1rem 0; /* Increase padding for better alignment */
+  }
+}
+  
+  /* Better text handling for small screens */
+  .prose, .prose p, .prose li, .prose div {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+    font-size: var(--font-size-sm);
+    line-height: 1.7;
+  }
+  
+  /* Mobile-optimized code blocks */
+  .prose pre {
+    font-size: var(--font-size-xs);
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-break: break-all;
+    border-radius: 0.5rem;
+    padding: var(--space-md);
+  }
+  
+  .prose code {
+    font-size: var(--font-size-xs);
+    word-break: break-all;
+    padding: 0.125rem 0.25rem;
+  }
+  
+  /* Ensure all containers respect mobile viewport */
+  .container, .max-w-4xl, .max-w-xl, .max-w-lg, .max-w-md, .max-w-sm, .max-w-xs {
+    max-width: 100%;
+    width: 100%;
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
+    overflow-wrap: break-word;
+  }
+  
+  /* Mobile input improvements */
+  input[type="text"], input[type="email"], input[type="password"], textarea {
+    font-size: 16px; /* Prevent zoom on iOS */
+    min-height: var(--touch-target-min);
+    padding: var(--space-md);
+    border-radius: 0.75rem;
+  }
+}
+
+/* Very Small Devices (max 374px) - Small phones */
+@media (max-width: 374px) {
+  :root {
+    --font-size-xs: 0.65rem;
+    --font-size-sm: 0.75rem;
+    --font-size-base: 0.85rem;
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 0.625rem;
+    --container-padding: var(--space-sm);
+    --header-height: 4rem;
+  }
+  
+  /* Compact button sizing for very small screens */
+  button {
+    min-height: 40px;
+    padding: var(--space-sm) var(--space-md);
+    font-size: var(--font-size-sm);
+  }
+  
+  /* Ensure header content always remains visible on very small screens */
+  .mobile-header-title {
+    font-size: 0.9rem !important; /* Increased from 0.8rem to ensure visibility */
+    line-height: 1.2 !important;
+    font-weight: 700 !important; /* Make it bolder for better visibility */
+  }
+  
+  .mobile-header-subtitle {
+    font-size: 0.75rem !important; /* Increased from 0.65rem to ensure visibility */
+    line-height: 1.3 !important;
+    font-weight: 500 !important; /* Make it medium weight for better visibility */
+  }
+  
+  .mobile-header-button {
+    padding: 0.5rem !important;
+    font-size: 0.7rem !important;
+  }
+  
+  /* Extra padding and centering for very small screens */
+  .mobile-header-container {
+    padding-bottom: 1rem; /* More bottom padding for tiny screens */
+  }
+  
+  .mobile-header-text-container {
+    padding: 1.25rem 0; /* Increase vertical padding */
+    min-width: 0; /* Prevent overflow */
+    flex: 1; /* Ensure it takes available space */
+  }
+  
+  .mobile-header-button-container {
+    padding: 1.25rem 0; /* Match text container padding */
+    flex-shrink: 0; /* Prevent button from shrinking */
+  }
+}
+
+/* Extra Small Devices (max 370px) - Ensure logo never disappears */
+@media (max-width: 370px) {
+  .mobile-header-title {
+    font-size: 0.85rem !important; /* Slightly smaller but still visible */
+    font-weight: 800 !important; /* Extra bold for better visibility */
+    letter-spacing: -0.01em !important; /* Tighter spacing to fit better */
+  }
+  
+  .mobile-header-subtitle {
+    font-size: 0.7rem !important; /* Smaller but still readable */
+    font-weight: 600 !important; /* Semi-bold for better contrast */
+    letter-spacing: 0.01em !important; /* Slightly wider spacing for readability */
+  }
+  
+  /* Ensure text container doesn't overflow */
+  .mobile-header-text-container {
+    min-width: 0 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+    padding-right: 0.5rem !important; /* Add some spacing from button */
+  }
+  
+  /* Compact the header height slightly */
+  :root {
+    --header-height: 3.75rem;
+  }
+}
+
+/* Premium Glass Morphism Effects */
+.glass-surface {
+  background: var(--color-surface-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-surface-strong {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Enhanced Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(99, 102, 241, 0.5);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s var(--ease-smooth) forwards;
+  opacity: 0;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.4s var(--ease-smooth) forwards;
+}
+
+/* Premium Loading Spinner */
+.premium-spinner {
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--color-surface-secondary);
+  border-top: 2px solid var(--color-accent-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Enhanced Typography Classes */
+.text-gradient {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-secondary {
+  background: var(--gradient-secondary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Premium Button Styles */
+.btn-premium {
+  background: var(--gradient-primary);
+  border: none;
+  color: white;
+  font-weight: var(--font-weight-medium);
+  transition: all 0.3s var(--ease-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-premium::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn-premium:hover::before {
+  left: 100%;
+}
+
+.btn-premium:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-lg), var(--shadow-glow);
+}
+
+/* ===== UTILITY CLASSES & LAYOUT HELPERS ===== */
+
+/* Container system */
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+.container-xs { max-width: var(--container-xs); }
+.container-sm { max-width: var(--container-sm); }
+.container-md { max-width: var(--container-md); }
+.container-lg { max-width: var(--container-lg); }
+.container-xl { max-width: var(--container-xl); }
+
+/* Prevent content overflow */
+.overflow-safe {
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+/* Full-width utilities */
+.full-width {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+/* Z-index utilities */
+.z-dropdown { z-index: var(--z-dropdown); }
+.z-sticky { z-index: var(--z-sticky); }
+.z-fixed { z-index: var(--z-fixed); }
+.z-modal-backdrop { z-index: var(--z-modal-backdrop); }
+.z-modal { z-index: var(--z-modal); }
+.z-popover { z-index: var(--z-popover); }
+.z-tooltip { z-index: var(--z-tooltip); }
+.z-toast { z-index: var(--z-toast); }
+.z-loading { z-index: var(--z-loading); }
+
+/* Enhanced markdown elements within chat bubbles */
+.prose {
+  --prose-body: var(--color-text-secondary);
+  --prose-headings: var(--color-text-primary);
+  --prose-lead: var(--color-text-tertiary);
+  --prose-links: var(--color-accent-primary);
+  --prose-bold: var(--color-text-primary);
+  --prose-counters: var(--color-text-muted);
+  --prose-bullets: var(--color-text-muted);
+  --prose-hr: var(--color-border-primary);
+  --prose-quotes: var(--color-text-tertiary);
+  --prose-quote-borders: var(--color-border-secondary);
+  --prose-captions: var(--color-text-muted);
+  --prose-code: var(--color-accent-tertiary);
+  --prose-pre-code: var(--color-text-primary);
+  --prose-pre-bg: var(--color-surface-secondary);
+  --prose-th-borders: var(--color-border-secondary);
+  --prose-td-borders: var(--color-border-primary);
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  color: var(--prose-headings);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.3;
+  margin-bottom: 0.75em;
+  margin-top: 1.5em;
+}
+
+.prose h1:first-child,
+.prose h2:first-child,
+.prose h3:first-child {
+  margin-top: 0;
+}
+
+.prose h1 { font-size: var(--font-size-2xl); }
+.prose h2 { font-size: var(--font-size-xl); }
+.prose h3 { font-size: var(--font-size-lg); }
+
+.prose p {
+  color: var(--prose-body);
+  margin-bottom: 1.25em;
+  line-height: 1.7;
+}
+
+.prose ul,
+.prose ol {
+  margin-bottom: 1.25em;
+  padding-left: 1.5em;
+}
+
+.prose li {
+  margin-bottom: 0.5em;
+  color: var(--prose-body);
+}
+
+.prose li::marker {
+  color: var(--prose-bullets);
+}
+
+.prose code {
+  color: var(--prose-code);
+  background-color: var(--color-surface-elevated);
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.375rem;
+  font-size: 0.875em;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: var(--font-weight-medium);
+}
+
+.prose pre {
+  background-color: var(--prose-pre-bg);
+  border: 1px solid var(--color-border-primary);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  overflow-x: auto;
+  margin: 1.25em 0;
+}
+
+.prose pre code {
+  background-color: transparent;
+  padding: 0;
+  color: var(--prose-pre-code);
+  font-size: var(--font-size-sm);
+}
+
+.prose blockquote {
+  border-left: 4px solid var(--color-accent-primary);
+  padding-left: 1rem;
+  margin: 1.25em 0;
+  font-style: italic;
+  color: var(--prose-quotes);
+  background-color: var(--color-surface-primary);
+  border-radius: 0 0.375rem 0.375rem 0;
+  padding: 1rem;
+}
+
+.prose strong {
+  color: var(--prose-bold);
+  font-weight: var(--font-weight-semibold);
+}
+
+.prose a {
+  color: var(--prose-links);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s var(--ease-smooth);
+}
+
+.prose a:hover {
+  border-bottom-color: var(--prose-links);
+}
+
+/* Remove margin from the last element in a prose block */
+.prose > *:last-child {
+  margin-bottom: 0;
+}
+
+/* Enhanced scrollbar styling */
+.prose::-webkit-scrollbar {
+  width: 4px;
+}
+
+.prose::-webkit-scrollbar-track {
+  background: var(--color-surface-primary);
+  border-radius: 2px;
+}
+
+.prose::-webkit-scrollbar-thumb {
+  background: var(--color-border-secondary);
+  border-radius: 2px;
+}
+
+.prose::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}
+
+/* Firefox scrollbar */
+.prose {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border-secondary) var(--color-surface-primary);
+}
+
+/* Global scroll behavior */
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Prevent content from extending beyond viewport */
+.container, .max-w-4xl, .max-w-xl, .max-w-lg, .max-w-md, .max-w-sm, .max-w-xs {
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+
+
+/* ===== SAFE AREA INSETS & MODERN MOBILE FEATURES ===== */
+
+/* Safe area insets for notched devices */
+@supports (padding: max(0px)) {
+  .safe-top {
+    padding-top: max(var(--space-md), env(safe-area-inset-top));
+  }
+  
+  .safe-bottom {
+    padding-bottom: max(var(--space-md), env(safe-area-inset-bottom));
+  }
+  
+  .safe-left {
+    padding-left: max(var(--space-md), env(safe-area-inset-left));
+  }
+  
+  .safe-right {
+    padding-right: max(var(--space-md), env(safe-area-inset-right));
+  }
+  
+  .safe-x {
+    padding-left: max(var(--space-md), env(safe-area-inset-left));
+    padding-right: max(var(--space-md), env(safe-area-inset-right));
+  }
+  
+  .safe-y {
+    padding-top: max(var(--space-md), env(safe-area-inset-top));
+    padding-bottom: max(var(--space-md), env(safe-area-inset-bottom));
+  }
+  
+  .safe-all {
+    padding-top: max(var(--space-md), env(safe-area-inset-top));
+    padding-right: max(var(--space-md), env(safe-area-inset-right));
+    padding-bottom: max(var(--space-md), env(safe-area-inset-bottom));
+    padding-left: max(var(--space-md), env(safe-area-inset-left));
+  }
+}
+
+/* Mobile Keyboard Handling */
+@supports (height: 100dvh) {
+  .mobile-vh-fix {
+    height: var(--vh-dynamic);
+    min-height: var(--vh-dynamic);
+  }
+}
+
+/* Enhanced touch interactions */
+.touch-optimized {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  tap-highlight-color: rgba(0, 0, 0, 0);
+  touch-action: manipulation;
+  user-select: none;
+  cursor: pointer;
+}
+
+/* Mobile scroll improvements */
+.mobile-scroll {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  scroll-behavior: smooth;
+}
+
+/* iOS specific fixes */
+@supports (-webkit-touch-callout: none) {
+  /* iOS Safari specific styles */
+  .ios-fix {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Fix for iOS Safari viewport height */
+  .ios-vh-fix {
+    height: -webkit-fill-available;
+    min-height: -webkit-fill-available;
+  }
+}
+
+/* High DPI screen optimizations */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  /* Sharper borders for high DPI screens */
+  .border-sharp {
+    border-width: 0.5px;
+  }
+}
+
+/* Dark mode enhancements */
+@media (prefers-color-scheme: dark) {
+  /* Additional dark mode optimizations already handled by CSS variables */
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .animate-fade-in-up,
+  .animate-scale-in {
+    animation: none !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --color-border-primary: #ffffff;
+    --color-border-secondary: #ffffff;
+    --color-text-muted: #ffffff;
+  }
+}
