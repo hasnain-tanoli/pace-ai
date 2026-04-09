@@ -1,57 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pace AI | Learn Your Way, Every Step.</title>
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="icon" type="image/png" sizes="192x192" href="/favicon.png">
-    <link rel="apple-touch-icon" sizes="192x192" href="/favicon.png">
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-  <script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@^19.1.0",
-    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
-    "react/": "https://esm.sh/react@^19.1.0/",
-    "@google/genai": "https://esm.sh/@google/genai@^1.3.0"
-  }
-}
-</script>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pace AI | Learn Your Way, Every Step.</title>
+  <meta name="description"
+    content="Pace AI — your personal AI tutor. Learn any topic your way with adaptive explanations, quizzes, and structured roadmaps.">
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'display': ['Syne', 'sans-serif'],
+            'sans': ['DM Sans', 'system-ui', 'sans-serif'],
+            'mono': ['DM Mono', 'monospace'],
+          },
+          colors: {
+            stone: {
+              50: '#FAFAF9',
+              75: '#F7F6F4',
+              100: '#F5F4F2',
+              150: '#EEECE9',
+              200: '#E7E5E2',
+              300: '#D6D3CF',
+              400: '#A8A29D',
+              500: '#79746F',
+              600: '#57534E',
+              700: '#44403C',
+              800: '#292524',
+              900: '#1C1917',
+              950: '#0F0E0D',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Fonts: Syne (display) + DM Sans (body) + DM Mono (code) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      font-size: 100%; /* Tailwind will use this as base for rem units */
-    }
-    /* Style scrollbar for a very dark theme look */
+    /* Scrollbar — light theme */
     ::-webkit-scrollbar {
-      width: 8px;
-      height: 8px;
+      width: 6px;
+      height: 6px;
     }
+
     ::-webkit-scrollbar-track {
-      background: #262626; /* neutral-800 */
+      background: #F5F4F2;
     }
+
     ::-webkit-scrollbar-thumb {
-      background: #404040; /* neutral-700 */
-      border-radius: 4px;
+      background: #D6D3CF;
+      border-radius: 3px;
     }
+
     ::-webkit-scrollbar-thumb:hover {
-      background: #525252; /* neutral-600 */
+      background: #A8A29D;
+    }
+
+    /* Selection */
+    ::selection {
+      background: #FED7AA;
+      color: #1C1917;
     }
   </style>
-<link rel="stylesheet" href="/index.css">
+
+  <link rel="stylesheet" href="/index.css">
 </head>
-  <body class="bg-black text-slate-200">
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
-  </body>
+
+<body class="bg-stone-50 text-stone-900 font-sans antialiased">
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+
 </html>
