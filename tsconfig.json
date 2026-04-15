@@ -26,8 +26,9 @@
 
     "paths": {
       "@/*" :  ["./*"]
-    }
+    },
+    "types": ["vite/client"]
   },
-  "include": ["src", "types.d.ts"],
+  "include": ["**/*.ts", "**/*.tsx", "types.d.ts"],
   "exclude": ["node_modules"]
 }

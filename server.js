@@ -9,7 +9,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 const GROQ_MODEL = "llama-3.1-8b-instant";
 
 const apiKey = process.env.VITE_GROQ_API_KEY || process.env.GROQ_API_KEY;
