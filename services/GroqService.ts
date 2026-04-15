@@ -1,6 +1,26 @@
 import { ChatMessage, TeachingMethod, QuizQuestion, UserIntent } from '../types';
 
-const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:3001/api";
+const getBaseUrl = () => {
+  let url = import.meta.env.VITE_API_BASE || "http://localhost:3001/api";
+  
+  // 1. Ensure protocol
+  if (!url.startsWith('http')) {
+    url = `https://${url}`;
+  }
+  
+  // 2. Ensure /api suffix
+  if (!url.endsWith('/api') && !url.endsWith('/api/')) {
+    // Remove trailing slash if present then add /api
+    url = url.replace(/\/$/, '') + '/api';
+  }
+  
+  // 3. Clean double slashes (except for ://)
+  url = url.replace(/([^:]\/)\/+/g, "$1");
+  
+  return url;
+};
+
+const API_BASE = getBaseUrl();
 
 export class GroqService {
   isApiKeySet(): boolean {
